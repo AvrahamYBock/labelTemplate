@@ -49,51 +49,52 @@
 </head>
 
 <body>
+    <div class="pageWrapper">
 
-    <nav class="navbar navbar-default navbar-inverse navbar-fixed-top">
+        <nav class="navbar navbar-default navbar-inverse navbar-fixed-top">
 
-        <div class="container">
+            <div class="container">
 
-            <!-- Brand and toggle get grouped for better mobile display -->
+                <!-- Brand and toggle get grouped for better mobile display -->
 
-            <div class="navbar-header">
+                <div class="navbar-header">
 
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navv" aria-expanded="false">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navv" aria-expanded="false">
 
-                    <span class="sr-only">Toggle navigation</span>
+                        <span class="sr-only">Toggle navigation</span>
 
-                    <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
 
-                    <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
 
-                    <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
 
-                </button>
+                    </button>
 
-                <a class="navbar-brand" href="index.php">Supiritiv Ez Kids' Labels</a>
+                    <a class="navbar-brand" href="index.php">Supiritiv Ez Kids' Labels</a>
 
-            </div>
+                </div>
 
 
 
-            <!-- Collect the nav links, forms, and other content for toggling -->
+                <!-- Collect the nav links, forms, and other content for toggling -->
 
-            <div class="collapse navbar-collapse" id="navv">
+                <div class="collapse navbar-collapse" id="navv">
 
-                <ul class="nav navbar-nav">
+                    <ul class="nav navbar-nav">
 
-                    <li><a href="products.php">Products</a></li>
+                        <li><a href="products.php">Products</a></li>
 
-                    <li><a href="faq.php">FAQ</a></li>
+                        <li><a href="faq.php">FAQ</a></li>
 
-                    <li><a href="contact.php">Contact Us</a></li>
+                        <li><a href="contact.php">Contact Us</a></li>
 
-                </ul>
+                    </ul>
 
-            </div><!-- /.navbar-collapse -->
+                </div><!-- /.navbar-collapse -->
 
-        </div><!-- /.container-fluid -->
+            </div><!-- /.container-fluid -->
 
-    </nav>
+        </nav>
 
-    <div  class="container">
+        <div  class="container">

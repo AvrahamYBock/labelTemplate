@@ -53,6 +53,29 @@
                 margin: .38in .41in;
 
         }
+        #modalWrapper{
+            display: none;
+            position: fixed;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
+            
+        }
+        #printingModal{
+            border: 1px solid black;
+            //position: fixed;
+            width: 60%;
+            height: 500px;
+            background-color: lightgray;
+            //top: 0;
+            //left: 0;
+            opacity: 1;
+            margin: 5% 0 0 20%;
+            overflow-y: scroll;
+            max-height: 80%;        
+            
+        }
 
         @media screen{
 
@@ -134,7 +157,7 @@
         }
         
         @media print{
-            #buttonDiv, #inputForm{
+            #buttonDiv, #inputForm, #printingModal{
 
                 display: none;
 
@@ -184,15 +207,6 @@
     <div class="row">
 
         <div class="col-md-4 col-xs-12 text-center">
-
-
-            <div id="buttonDiv">
-
-                <button><a href="labels.php">Reset</a></button>
-
-                <button onclick="window.print()">Print</button>
-
-            </div>
 
             <table>
 
@@ -296,15 +310,23 @@
 
                 </div-->
 
-                <button class="btn btn-primary" type="submit" class="btn btn-default">Preview</button>
+                <button class="btn btn-primary" type="submit">Preview</button>
+                <button class="btn btn-primary" id="printInstructionsButton">Printing Instructions</button>
 
             </form>
 
         </div>
     </div>
-
+    <div id="modalWrapper">
+        <div id="printingModal">
+            <?php include "printingInstructions.html" ?>
+            <div class="text-center">
+                <button class="btn btn-primary" id="gotIt">Got It</button>
+            </div>
+        </div>
+    </div>
     <div><!--opening div to replace .container opening div which was closed earlier-->
-
  
+<script src="javascript/index.js"></script>
 
 <?php include "bottom.php" ?>
