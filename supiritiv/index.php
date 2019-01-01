@@ -1,16 +1,18 @@
 <?php
 
-    $line1="";
+    $line1 = "";
 
-    $line2="";
+    $line2 = "";
 
     $line2br = "";
 
     //$horizontalCenter = "";
 
-    $firstRow=1;
+    $firstRow = 1;
 
-    $lastRow=20;
+    $lastRow = 20;
+
+    $fontSize = "12px";
 
 
 
@@ -22,22 +24,16 @@
 
         $line2 = $_GET['line2'];
         $line2br = "<br>" . $line2;
-    }/*else{
-    $horizontalCenter = ".v-wrap{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 100%;
-    }";
-    }*/
-    if(!empty($_GET['firstRow']))
+    }
 
+    if(!empty($_GET['firstRow']))
         $firstRow = $_GET['firstRow'];
 
     if(!empty($_GET['lastRow']))
-
         $lastRow = $_GET['lastRow'];
 
+    if(strlen($line1) < 11 && strlen($line2) < 11)
+        $fontSize = "14px";
 
 
     $style="*{
@@ -53,6 +49,14 @@
                 margin: .38in .41in;
 
         }
+
+        span {
+            display: inline-block;
+            vertical-align: middle;
+            line-height: normal;
+            line-height: 150%;
+        }
+
         #modalWrapper{
             display: none;
             position: fixed;
@@ -66,13 +70,14 @@
             border: 1px solid black;
             //position: fixed;
             width: 60%;
-            height: 500px;
+            //height: 500px;
             background-color: lightgray;
             //top: 0;
             //left: 0;
             opacity: 1;
             margin: 5% 0 0 20%;
-            overflow-y: scroll;
+            padding: 20px;
+            overflow-y: auto;
             max-height: 80%;        
             
         }
@@ -115,7 +120,7 @@
 
             /*vertical-align: middle;*/
 
-            font-size: 12px;
+            font-size: $fontSize;
             
 
         }
@@ -237,14 +242,12 @@
                             for($j=0; $j<5; $j++){
 
                                 echo "<td>
-                                        <!--div class=\"v-wrap\"-->
-                                            <div class=\"v-box\" id=\"textDiv\">$line1$line2br</div>
-                                        <!--/div-->
+                                        <span>$line1$line2br</span>
                                     </td><td class=gutter></td>";
 
                             }
 
-                            echo "<td><!--div class=\"v-wrap\"--><div class=\"v-box\" id=\"textDiv\">$line1$line2br</div><!--/div--></td>";
+                            echo "<td><span>$line1$line2br</span></td>";
 
                             echo "</tr>";
 
@@ -311,7 +314,7 @@
                 </div-->
 
                 <button class="btn btn-primary" type="submit">Preview</button>
-                <button class="btn btn-primary" id="printInstructionsButton">Printing Instructions</button>
+                <button class="btn btn-primary" id="printInstructionsButton">Print</button>
 
             </form>
 
@@ -321,7 +324,7 @@
         <div id="printingModal">
             <?php include "printingInstructions.html" ?>
             <div class="text-center">
-                <button class="btn btn-primary" id="gotIt">Got It</button>
+                <button class="btn btn-primary" id="gotIt">Cancel</button>
             </div>
         </div>
     </div>

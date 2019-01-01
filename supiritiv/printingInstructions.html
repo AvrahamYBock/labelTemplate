@@ -1,3 +1,45 @@
-<div>
-    <h1 class="text-center">Printing Instructions:</h1>
+<style>
+    #instructionDiv {
+        font-weight: normal;
+        /*margin: 20px;*/
+    }
+
+    li {
+        font-weight: normal
+    }
+</style>
+
+<div id="instructionDiv">
+    <h3 class="text-center">Printing Instructions</h3>
+    <h4>Important: Carefully read <strong>ALL</strong> the instructions before printing</h4>
+    <ul>
+        <li>Always run a test print first on plain sheet of paper. A blank paper template was included in purchase.
+            This will ensure proper alignment of lables.</li>
+        <br>
+        <li>Check the following settings in <a href="#" id="printPreviewSettings">Print Preview</a>. When done click
+            "Cancel", <strong>do not print from Print Preview</strong>.
+            <ul>
+                <li> Set margin to "None" </li>
+                <li> Set scale to 100% </li>
+            </ul>
+        </li>
+        <br>
+        <li>Print from "System Dialog" by pressing Ctrl+Shift+P
+            <br>Set preferences as follows:
+            <ul>
+                <li>Media type: select "Label"/"Thicker Paper" or similar</li>
+                <li>Print Resolution/Quality: Best/Highest dpi</li>
+            </ul>
+        </li>
+    </ul>
+    <br>
+    <h4>Press Ctrl+Shift+P to print. Click "Cancel" to cancel</h4>
 </div>
+
+<script>
+
+    document.getElementById("printPreviewSettings").addEventListener('click', function () {
+        window.print();
+    })
+
+</script>
