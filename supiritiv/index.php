@@ -16,11 +16,11 @@
 
 
 
-    if(!empty($_GET['line1']))
+    if(!empty($_GET['line1']) && !isset($_GET['reset']))
 
         $line1 = $_GET['line1'];
 
-    if(!empty($_GET['line2'])){
+    if(!empty($_GET['line2']) && !isset($_GET['reset'])){
 
         $line2 = $_GET['line2'];
         $line2br = "<br>" . $line2;
@@ -313,8 +313,9 @@
 
                 </div-->
 
-                <button class="btn btn-primary" type="submit">Preview</button>
-                <button class="btn btn-primary" id="printInstructionsButton">Print</button>
+                <button class="btn btn-primary" type="submit" name="apply">Apply Changes</button>
+                <button class="btn btn-primary" id="printInstructionsButton" name="print">Print...</button>
+                <button class="btn btn-primary" id="reset" name="reset">Reset</button>
 
             </form>
 
@@ -324,7 +325,7 @@
         <div id="printingModal">
             <?php include "printingInstructions.html" ?>
             <div class="text-center">
-                <button class="btn btn-primary" id="gotIt">Cancel</button>
+                <button class="btn btn-primary" id="gotIt">Close</button>
             </div>
         </div>
     </div>
