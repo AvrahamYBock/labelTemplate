@@ -6,7 +6,9 @@
 
     $line2br = "";
 
-    //$horizontalCenter = "";
+    $color="#000000";
+	
+	$font="Arial";
 
     $firstRow = 1;
 
@@ -24,6 +26,16 @@
 
         $line2 = $_GET['line2'];
         $line2br = "<br>" . $line2;
+    }
+	
+	if(!empty($_GET['font']) && !isset($_GET['reset'])){
+
+        $font = $_GET['font'];
+    }
+	
+	if(!empty($_GET['color']) && !isset($_GET['reset'])){
+
+        $color = $_GET['color'];
     }
 
     if(!empty($_GET['firstRow']))
@@ -117,10 +129,12 @@
             height: .51in;
 
             text-align: center;
-
-            /*vertical-align: middle;*/
+			
+			font-family: $font;
 
             font-size: $fontSize;
+			
+			color: $color;
             
 
         }
@@ -297,21 +311,19 @@
 
                 </div>
 
-                <!--div class="form-group text-left">
-
-                    <label for="firstRow">Start Printing on Row #</label>
-
-                    <input type="number" class="form-control" id="firstRow" name="firstRow" max="20" min="1" maxlength="2">
-
-                </div>
-
+				<div class="form-group text-left">
+					<label for="font">Choose a Font:</label>
+				    <select name="font">
+						<option <?php if($font=="Times New Roman")echo "selected"; ?> >Times New Roman</option>
+						<option <?php if($font=="Arial")echo "selected"; ?> >Arial</option>
+						<option <?php if($font=="Monospace")echo "selected"; ?> >Monospace<option>
+					</select>
+			    </div>
+				
                 <div class="form-group text-left">
-
-                    <label for="lastRow">Last Row to Print is Row #</label>
-
-                    <input type="number" class="form-control" id="lastRow" name="lastRow" max="20" min="1" maxlength="2">
-
-                </div-->
+					<label for="color">Choose a color:</label>
+					<input type="color" name="color" value=<?='"'.$color.'"' ?> >
+			    </div>
 
                 <button class="btn btn-primary" type="submit" name="apply">Apply Changes</button>
                 <button class="btn btn-primary" id="printInstructionsButton" name="print">Print...</button>
