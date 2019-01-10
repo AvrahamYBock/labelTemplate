@@ -101,15 +101,15 @@
                 margin-top: 80px;
 
             }
+		td{
 
-            td{
+            border: 1px solid black;
 
-                border: 1px solid black;
+        }  
 
-            }           
+                    
 
         }
-
         table{
 
             border-collapse: collapse;
