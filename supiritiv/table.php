@@ -28,20 +28,24 @@
 			margin: .38in .41in;
 	}
 
-	div.textDiv{
-		display: inline-block;
+	td.textTd{		
 		height: 0.51in;
 		width: 1.18in;
-		border: solid black 1px
 	}
 
-	div.gutterDiv{
-
-		display: inline-block;
+	td.gutterTd{
+	
 		height: 0.51in;
 		width: .12in;
 	}
+	table{
+		border-collapse: collapse;
+		text-align: center;
+	}
 
+	@media screen{
+
+      
 	
 	@page{
 
@@ -60,26 +64,28 @@
 </head>
 
 <body>
-	<div>
-		<?php
+	<table>
+		<tbody>
+			<?php
 
-			for($i=0; $i < 20; $i++){				
+				for($i=0; $i < 20; $i++){				
+				echo "<tr>";
+					for($j=0; $j<6; $j++){
 
-				for($j=0; $j<6; $j++){
+						echo "<td class='textTd'>
+								Name Name N
+							</td>";
 
-					echo "<div class='textDiv'>
-							Name Name N
-						</div>";
-
-					if($j<5){
-						echo "<div class='gutterDiv'>n</div>";
+						if($j<5){
+							echo "<td class='gutterTd'></td>";
+						}
 					}
-				}
-					echo "<br>";
+						
 
 			
-			}
-		?>
-	</div>
+				}
+			?>
+		</tbody>
+	</table>
 
 </body>
