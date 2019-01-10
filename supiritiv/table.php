@@ -1,21 +1,18 @@
-<!DOCTYPE html>
+<?php
 
-<html lang="en">
+	for($i=0; $i<20; $i++){
+		if($i<10 || $i>15){
+			$text[$i][0] = "Yona Bock";
+			$text[$i][1] = "<br>848-210-4851";
+		}else{
+			$text[$i][0] = "";
+			$text[$i][1] = "";
+		}
+	}
+	
+?>
 
-<head>
 
-    <meta charset="UTF-8">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-
-    <title>
-
-        Label App
-
-    </title>
 <style>
 	*{
 		box-sizing: border-box;
@@ -25,7 +22,7 @@
 	}
 
 	body{
-			margin: .38in .41in;
+			margin: .38in .45in;
 	}
 
 	td.textTd{		
@@ -45,7 +42,10 @@
 
 	@media screen{
 
-      
+    td{
+
+		border: 1px solid black;
+	}    
 	
 	@page{
 
@@ -53,16 +53,9 @@
 
 	}
 
-	#sizeDiv{
-		height: 0.51in;
-		width: 1.18in;
-	}
+	
 </style>
-
     
-
-</head>
-
 <body>
 	<table>
 		<tbody>
@@ -73,16 +66,13 @@
 					for($j=0; $j<6; $j++){
 
 						echo "<td class='textTd'>
-								Name Name N
+								<span>".$text[$i][0].$text[$i][1]."</span>
 							</td>";
 
 						if($j<5){
 							echo "<td class='gutterTd'></td>";
 						}
-					}
-						
-
-			
+					}			
 				}
 			?>
 		</tbody>
