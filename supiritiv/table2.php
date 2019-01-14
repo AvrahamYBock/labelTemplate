@@ -34,7 +34,7 @@
 
 	body{
 		/*these measurements were fine tuned and tested on 1/3/19 */
-		margin: .43in 0.41 0 41; 
+		margin: .43in 0.41in 0in .41in; 
 	}
 
 	td.textTd{		
@@ -44,20 +44,23 @@
 
 	td.gutterTd{
 	
-		height: 0.514in;
 		width: .12in;
 	}
 	table{
 		border-collapse: collapse;
 		text-align: center;
+		//table-layout: fixed;
+        //width: 7.68in;
+        //height: 10.2in;
 	}
 
 	@media screen{
 
-    td{
+		td{
 
-		border: 1px solid black;
-	}    
+			border: 1px solid black;
+		}    
+	}
 	
 	@page{
 
