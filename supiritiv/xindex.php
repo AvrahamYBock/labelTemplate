@@ -46,52 +46,29 @@
 
     if(strlen($line1) < 11 && strlen($line2) < 11)
         $fontSize = "14px";
-        $style="*{
+
+
+    $style="*{
 
             box-sizing: border-box;
+
             font-weight: bold;
-            margin: 0;
-            padding: 0;
 
         }
 
         body{
 
-            margin: .38in .41in;
+                margin: .38in .41in;
 
         }
 
-        td.textTd{		
-            height: 0.514in;
-            width: 1.17in;
-          	
-			font-family: $font;
-
-            font-size: $fontSize;
-			
-			color: $color;
+        span {
+            display: inline-block;
+            vertical-align: middle;
+            line-height: normal;
+            line-height: 150%;
         }
 
-        td.gutterTd{
-	
-            width: .12in;
-        }
-        table{
-            border-collapse: collapse;
-            text-align: center;
-            //table-layout: fixed;
-            //: 7.68in;
-            //height: 10.2in;
-        }
-    
-         
-        @page{
-    
-            margin: 0;
-    
-        }
-
-       
         #modalWrapper{
             display: none;
             position: fixed;
@@ -123,19 +100,69 @@
 
                 margin-top: 80px;
 
-            }  
-            td{
+            }
+		td{
 
-                border: 1px solid black;
-            }
-            table{
-                table-layout: fixed;
-                width: 7.68in;
-                height: 10.2in;
-            }
+            border: 1px solid black;
+
+        }  
+
+                    
 
         }
-     
+        table{
+
+            border-collapse: collapse;
+
+            table-layout: fixed;
+
+            width: 7.68in;
+
+            height: 10.2in;
+
+        }
+
+        td{
+
+            width: 1.18in;
+
+            height: .51in;
+
+            text-align: center;
+			
+			font-family: $font;
+
+            font-size: $fontSize;
+			
+			color: $color;
+            
+
+        }
+
+        td div{
+
+            width: 1.18in;
+
+            height: .51in;
+
+            overflow: hidden;
+
+            padding: 10px 0;
+
+        }
+
+        .gutter{
+
+            width: .12in;
+
+        }
+
+        @page{
+
+            margin: 0;
+
+        }
+
         #buttonDiv{
 
              margin: 0 0 30px 30px;
@@ -156,7 +183,35 @@
             }
 
         }
- 
+
+       /* #textDiv{
+            position: relative;
+            top: 50%;
+            transform: translateY(-35%);
+        }*/
+/*
+        .v-wrap{
+            height: 100%;
+            white-space: nowrap;
+            text-align: center;
+        }
+        .v-wrap:before{
+            content: \"\";
+            display: inline-block;
+            vertical-align: middle;
+            width: 0;
+            /* adjust for white space between pseudo element and next sibling */
+            margin-right: -.25em;
+            /* stretch line height */
+            height: 100%; 
+        }
+        .v-box{
+            display: inline-block;
+            vertical-align: middle;
+            white-space: normal;
+        }*/
+        
+                
 ";
 
     $title="Preview";
@@ -166,30 +221,73 @@
     include "top.php";
 
 ?>
+
     </div><!--close .container div for printing purpose-->
     <div class="row">
+
         <div class="col-md-4 col-xs-12 text-center">
+
             <table>
+
                 <tbody>
+
                     <?php
 
-                        for($i=0; $i < 20; $i++){				
+                        for($i=1; $i < $firstRow; $i++){
+
                             echo "<tr>";
-                                for($j=0; $j<6; $j++){
 
-                                    echo "<td class='textTd'>
-                                            <span>".$line1.$line2br."</span>
-                                        </td>";
+                            for($j=0; $j<5; $j++){
 
-                                    if($j<5){
-                                        echo "<td class='gutterTd'></td>";
-                                    }
-                                }
-                            echo "</tr>";	
+                                echo "<td><div></div></td><td class=gutter></td>";
+
+                            }
+
+                            echo "<td><div></div></td>";
+
+                            echo "</tr>";
+
                         }
+
+                        for($i=$firstRow; $i<=$lastRow; $i++){
+
+                            echo "<tr>";
+
+                            for($j=0; $j<5; $j++){
+
+                                echo "<td>
+                                        <span>$line1$line2br</span>
+                                    </td><td class=gutter></td>";
+
+                            }
+
+                            echo "<td><span>$line1$line2br</span></td>";
+
+                            echo "</tr>";
+
+                        }
+
+                        for($i=$lastRow; $i<20; $i++){
+
+                            echo "<tr>";
+
+                            for($j=0; $j<5; $j++){
+
+                                echo "<td><div></div></td><td class=gutter></td>";
+
+                            }
+
+                            echo "<td><div></div></td>";
+
+                            echo "</tr>";
+
+                        }
+
                     ?>
+
                 </tbody>
-	        </table>        
+
+            </table>
         </div>
         <div class="well col-md-3 col-md-offset-4 col-xs-12" id = "inputForm">    
 
@@ -232,6 +330,7 @@
                 <button class="btn btn-primary" id="reset" name="reset">Reset</button>
 
             </form>
+
         </div>
     </div>
     <div id="modalWrapper">
